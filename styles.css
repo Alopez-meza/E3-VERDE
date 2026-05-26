@@ -10,12 +10,14 @@
     6.  Navbar
     7.  Hero
     8.  Database
-    9.  Methods
-   10.  Models
-   11.  Benchmark
-   12.  Footer
-   13.  Animations & Reveal
-   14.  Responsive Design
+   9.  Property Distributions
+   10. 3D Gallery
+   11. Methods
+   12. Models
+   13. Benchmark
+   14. Footer
+   15. Animations & Reveal
+   16. Responsive Design
    ===================================================================== */
 
 
@@ -512,16 +514,12 @@ section { scroll-margin-top: var(--nav-h); }
 /* Right: glassmorphism stats card */
 .hero-card {
   flex-shrink: 0;
-  width: 296px;
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--r-xl);
-  padding: 28px;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  width: min(46vw, 520px);
+  min-width: 390px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .hero-card-header {
@@ -533,7 +531,7 @@ section { scroll-margin-top: var(--nav-h); }
   color: rgba(255, 255, 255, 0.60);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 26px;
+  margin-bottom: 18px;
 }
 .hero-card-dot {
   width: 8px; height: 8px;
@@ -543,15 +541,75 @@ section { scroll-margin-top: var(--nav-h); }
   flex-shrink: 0;
 }
 
+.hero-movie {
+  aspect-ratio: 16 / 10;
+  height: auto;
+  min-height: 380px;
+  margin-bottom: 18px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(116, 198, 157, 0.26), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.10), transparent 60%);
+  border: 0;
+  filter:
+    drop-shadow(0 26px 52px rgba(0, 0, 0, 0.22))
+    drop-shadow(0 0 34px rgba(82, 183, 136, 0.12));
+}
+
+.hero-movie-viewer {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.hero-movie-caption {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-movie-caption span {
+  max-width: 100%;
+  padding: 5px 12px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(7, 21, 13, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-full);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .hero-card-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-bottom: 26px;
+  gap: 14px;
+  margin-bottom: 20px;
 }
-.hero-stat { display: flex; flex-direction: column; gap: 4px; }
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--r-md);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 .hero-stat-value {
-  font-size: 1.8rem;
+  font-size: clamp(1.35rem, 2.3vw, 1.8rem);
   font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.04em;
@@ -616,19 +674,9 @@ section { scroll-margin-top: var(--nav-h); }
   min-width: 240px;
   position: relative;
 }
-.search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.15rem;
-  color: var(--c-text-muted);
-  pointer-events: none;
-  line-height: 1;
-}
 .search-input {
   width: 100%;
-  padding: 12px 16px 12px 42px;
+  padding: 12px 16px;
   font-family: var(--font);
   font-size: 0.95rem;
   color: var(--c-text);
@@ -664,107 +712,140 @@ section { scroll-margin-top: var(--nav-h); }
   box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.18);
 }
 
-/* Molecule card grid */
-.molecule-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 48px;
-}
-
-/* Individual molecule card */
-.molecule-card {
-  background: var(--c-surface);
+/* Excel-like database table */
+.db-table-shell {
+  margin-bottom: 36px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 246, 242, 0.95)),
+    var(--c-surface);
   border: 1.5px solid var(--c-border);
   border-radius: var(--r-lg);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
-.molecule-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--c-accent);
-}
-.molecule-card.hidden { display: none; }
 
-.molecule-card-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.db-table-scroll {
+  max-height: 620px;
+  overflow: auto;
 }
-.molecule-id { min-width: 0; }
-.molecule-name {
-  font-size: 1.08rem;
-  font-weight: 700;
+
+.db-table {
+  width: 100%;
+  min-width: 1900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.82rem;
+}
+
+.db-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  min-width: 84px;
+  padding: 14px 12px;
   color: var(--c-forest);
-  letter-spacing: -0.01em;
-  margin-bottom: 4px;
-}
-.molecule-family {
-  font-size: 0.78rem;
-  color: var(--c-text-muted);
-  font-weight: 500;
-}
-.molecule-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  background: #eaf6ee;
+  border-bottom: 2px solid var(--c-border);
+  border-right: 1px solid rgba(45, 106, 79, 0.14);
+  font-size: 0.70rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: normal;
 }
 
-/* Property table inside each card */
-.molecule-props {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  padding: 14px 16px;
-  background: var(--c-bg);
-  border: 1px solid var(--c-border-light);
-  border-radius: var(--r-sm);
+.db-table tbody td {
+  padding: 10px 12px;
+  color: var(--c-text-secondary);
+  background: #ffffff;
+  border-bottom: 1px solid var(--c-border-light);
+  border-right: 1px solid var(--c-border-light);
+  vertical-align: middle;
+  white-space: nowrap;
 }
-.prop-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.865rem;
+
+.db-table tbody tr:nth-child(even) td {
+  background: #fbfdfb;
 }
-.prop-label {
-  color: var(--c-text-muted);
-  font-weight: 500;
+
+.db-table tbody tr[data-quality="complete"] td {
+  background: #f2fbf5;
 }
-.prop-value {
+
+.db-table tbody tr[data-quality="high"] td {
+  background: #f8fcf9;
+}
+
+.db-table tbody tr td:first-child {
+  border-left: 4px solid rgba(82, 183, 136, 0.32);
+}
+
+.db-table tbody tr[data-quality="complete"] td:first-child {
+  border-left-color: var(--c-accent);
+}
+
+.db-table tbody tr[data-quality="high"] td:first-child {
+  border-left-color: var(--c-emerald-mid);
+}
+
+.db-table tbody tr:hover td {
+  background: rgba(82, 183, 136, 0.15);
+}
+
+.db-table th:nth-child(n+3):nth-child(-n+6),
+.db-table td:nth-child(n+3):nth-child(-n+6) {
+  background-image: linear-gradient(0deg, rgba(82, 183, 136, 0.055), rgba(82, 183, 136, 0.055));
+}
+
+.db-table th:nth-child(n+7):nth-child(-n+12),
+.db-table td:nth-child(n+7):nth-child(-n+12) {
+  background-image: linear-gradient(0deg, rgba(15, 61, 61, 0.045), rgba(15, 61, 61, 0.045));
+}
+
+.db-table th:nth-child(n+13):nth-child(-n+17),
+.db-table td:nth-child(n+13):nth-child(-n+17) {
+  background-image: linear-gradient(0deg, rgba(200, 110, 30, 0.055), rgba(200, 110, 30, 0.055));
+}
+
+.db-table th:nth-child(n+18),
+.db-table td:nth-child(n+18) {
+  background-image: linear-gradient(0deg, rgba(90, 140, 190, 0.055), rgba(90, 140, 190, 0.055));
+}
+
+.db-cell-key,
+.db-cell-num {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--c-forest);
-  background: rgba(82, 183, 136, 0.09);
-  padding: 2px 9px;
-  border-radius: 5px;
+  font-size: 0.78rem;
 }
 
-.molecule-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 6px;
-  border-top: 1px solid var(--c-border-light);
-  margin-top: auto;
+.db-cell-num {
+  color: var(--c-forest);
+  min-width: 82px;
+  text-align: right;
 }
-.molecule-unit {
-  font-size: 0.74rem;
-  color: var(--c-text-muted);
-  font-style: italic;
+
+.db-cell-smiles {
+  max-width: 420px;
+  min-width: 360px;
+  overflow: hidden;
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  text-overflow: ellipsis;
 }
-.molecule-link {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--c-emerald-mid);
-  transition: color var(--t);
+
+.db-table-link {
+  color: var(--c-emerald);
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 800;
 }
-.molecule-link:hover { color: var(--c-accent); }
+
+.db-table-link:hover {
+  color: var(--c-accent);
+}
 
 /* No-results message */
 .db-no-results {
@@ -789,7 +870,465 @@ section { scroll-margin-top: var(--nav-h); }
 
 
 /* =====================================================================
-   9. Methods Section
+   9. Property Distributions Section
+   ===================================================================== */
+.distributions {
+  padding: 100px 0;
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border-light);
+}
+
+.distribution-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.distribution-summary-card {
+  padding: 22px 24px;
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.distribution-summary-value {
+  display: block;
+  color: var(--c-forest);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.distribution-summary-label {
+  display: block;
+  margin-top: 8px;
+  color: var(--c-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.distribution-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.distribution-controls,
+.distribution-note,
+.distribution-chart-card {
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.distribution-controls {
+  padding: 20px;
+  position: sticky;
+  top: calc(var(--nav-h) + 18px);
+}
+
+.distribution-controls-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.distribution-controls-title {
+  color: var(--c-forest);
+  font-size: 1.05rem;
+}
+
+.distribution-selected-count {
+  flex-shrink: 0;
+  align-self: flex-start;
+  padding: 5px 10px;
+  color: var(--c-emerald);
+  background: rgba(82, 183, 136, 0.12);
+  border: 1px solid rgba(82, 183, 136, 0.24);
+  border-radius: var(--r-full);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.distribution-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.distribution-actions .btn {
+  padding-inline: 10px;
+}
+
+.distribution-property-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.distribution-group {
+  padding: 12px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-light);
+  border-radius: var(--r-md);
+}
+
+.distribution-group-title {
+  margin-bottom: 8px;
+  color: var(--c-text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.distribution-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 4px;
+  color: var(--c-text-secondary);
+  cursor: pointer;
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.distribution-checkbox input {
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  accent-color: var(--c-emerald);
+  flex-shrink: 0;
+}
+
+.distribution-results {
+  min-width: 0;
+}
+
+.distribution-note {
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  color: var(--c-text-secondary);
+  font-size: 0.88rem;
+}
+
+.distribution-note code {
+  color: var(--c-forest);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+}
+
+.distribution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.distribution-chart-card {
+  padding: 18px;
+}
+
+.distribution-chart-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.distribution-chart-title {
+  color: var(--c-forest);
+  font-size: 1rem;
+}
+
+.distribution-chart-group {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--c-emerald);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.distribution-histogram {
+  height: 150px;
+  padding: 10px 8px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-light);
+  border-radius: var(--r-md);
+}
+
+.distribution-bar {
+  flex: 1;
+  min-width: 3px;
+  background: linear-gradient(180deg, var(--c-accent), var(--c-emerald));
+  border-radius: 4px 4px 0 0;
+  opacity: 0.88;
+}
+
+.distribution-axis {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px 2px 16px;
+  color: var(--c-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.distribution-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.distribution-stat {
+  padding: 9px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-light);
+  border-radius: var(--r-sm);
+}
+
+.distribution-stat-label {
+  display: block;
+  color: var(--c-text-muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.distribution-stat-value {
+  display: block;
+  margin-top: 3px;
+  color: var(--c-forest);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.distribution-empty {
+  padding: 44px 24px;
+  text-align: center;
+  color: var(--c-text-muted);
+  background: var(--c-bg);
+  border: 1.5px dashed var(--c-border);
+  border-radius: var(--r-lg);
+}
+
+
+/* =====================================================================
+   10. 3D Gallery Section
+   ===================================================================== */
+.gallery {
+  padding: 100px 0;
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border-light);
+}
+
+.gallery-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.75fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.gallery-browser-card,
+.gallery-info-card {
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery-viewer-panel {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(82, 183, 136, 0.16), transparent 42%),
+    transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.gallery-viewer {
+  min-height: 390px;
+  width: 100%;
+  background: transparent;
+  border-radius: var(--r-xl);
+  border: 0;
+  filter:
+    drop-shadow(0 22px 44px rgba(27, 67, 50, 0.16))
+    drop-shadow(0 0 34px rgba(82, 183, 136, 0.12));
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-viewer-fallback {
+  padding: 14px 16px;
+  color: #8a4e10;
+  background: rgba(200, 110, 30, 0.10);
+  border: 1px solid rgba(200, 110, 30, 0.22);
+  border-radius: var(--r-md);
+  font-size: 0.88rem;
+}
+
+.gallery-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.gallery-info-card {
+  padding: 24px;
+}
+
+.gallery-browser-card {
+  padding: 20px;
+  grid-column: 1 / -1;
+}
+
+.gallery-browser-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.gallery-browser-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.gallery-controls-title {
+  color: var(--c-forest);
+  font-size: 1.05rem;
+}
+
+.gallery-counter {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  color: var(--c-emerald);
+  background: rgba(82, 183, 136, 0.12);
+  border: 1px solid rgba(82, 183, 136, 0.24);
+  border-radius: var(--r-full);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.gallery-slider {
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  background: linear-gradient(90deg, var(--c-emerald), var(--c-accent));
+  border-radius: var(--r-full);
+  outline: none;
+  cursor: pointer;
+}
+
+.gallery-slider:focus {
+  box-shadow: 0 0 0 3px rgba(82, 183, 136, 0.18);
+}
+
+.gallery-slider::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  background: #ffffff;
+  border: 3px solid var(--c-emerald);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border: 3px solid var(--c-emerald);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-nav-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  min-width: 220px;
+}
+
+.gallery-kicker {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--c-emerald-mid);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gallery-title {
+  color: var(--c-forest);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.gallery-smiles {
+  color: var(--c-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  margin-bottom: 20px;
+}
+
+.gallery-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.gallery-meta span {
+  min-height: 78px;
+  padding: 12px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-light);
+  border-radius: var(--r-sm);
+  color: var(--c-text-muted);
+  font-size: 0.74rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery-meta strong {
+  display: block;
+  color: var(--c-forest);
+  font-size: clamp(0.86rem, 1.5vw, 1rem);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+/* =====================================================================
+   11. Methods Section
    ===================================================================== */
 .methods {
   padding: 100px 0;
@@ -847,7 +1386,7 @@ section { scroll-margin-top: var(--nav-h); }
 
 
 /* =====================================================================
-   10. Models Section
+   12. Models Section
    ===================================================================== */
 .models {
   padding: 100px 0;
@@ -998,7 +1537,7 @@ section { scroll-margin-top: var(--nav-h); }
 
 
 /* =====================================================================
-   11. Benchmark Section
+   13. Benchmark Section
    ===================================================================== */
 .benchmark {
   padding: 100px 0;
@@ -1063,7 +1602,7 @@ section { scroll-margin-top: var(--nav-h); }
 
 
 /* =====================================================================
-   12. Footer
+   14. Footer
    ===================================================================== */
 .footer {
   background: linear-gradient(180deg, var(--c-forest-dark) 0%, #07150d 100%);
@@ -1178,7 +1717,7 @@ section { scroll-margin-top: var(--nav-h); }
 
 
 /* =====================================================================
-   13. Animations & Reveal
+   15. Animations & Reveal
    Elements with .reveal start invisible; script.js adds .visible
    via IntersectionObserver when they enter the viewport.
    To animate a new element: add class="reveal" (and optionally
@@ -1200,13 +1739,16 @@ section { scroll-margin-top: var(--nav-h); }
 
 
 /* =====================================================================
-   14. Responsive Design
+   16. Responsive Design
    ===================================================================== */
 
 /* ── Tablet: 1024px ── */
 @media (max-width: 1024px) {
   .methods-grid  { grid-template-columns: repeat(2, 1fr); }
   .bench-grid    { grid-template-columns: repeat(2, 1fr); }
+  .distribution-layout { grid-template-columns: 1fr; }
+  .distribution-controls { position: static; }
+  .gallery-layout { grid-template-columns: 1fr; }
   .models-inner  { gap: 44px; }
   .footer-top    { gap: 40px; }
 }
@@ -1249,15 +1791,26 @@ section { scroll-margin-top: var(--nav-h); }
 
   /* Hero */
   .hero-container { flex-direction: column; gap: 44px; }
-  .hero-card { width: 100%; max-width: 380px; }
+  .hero-card { width: 100%; min-width: 0; max-width: 520px; }
+  .hero-movie { min-height: 330px; }
 
   /* Database */
-  .molecule-grid  { grid-template-columns: repeat(2, 1fr); }
   .db-controls    { flex-direction: column; }
   .filter-select  { width: 100%; }
 
   /* Methods */
   .methods-grid { grid-template-columns: 1fr; }
+
+  /* Distributions */
+  .distribution-summary { grid-template-columns: 1fr; }
+  .distribution-grid { grid-template-columns: 1fr; }
+  .distribution-stats { grid-template-columns: repeat(2, 1fr); }
+
+  /* Gallery */
+  .gallery-viewer { min-height: 380px; }
+  .gallery-meta { grid-template-columns: 1fr; }
+  .gallery-browser-controls { grid-template-columns: 1fr; }
+  .gallery-nav-actions { min-width: 0; }
 
   /* Models */
   .models-inner { flex-direction: column; gap: 44px; }
@@ -1278,7 +1831,6 @@ section { scroll-margin-top: var(--nav-h); }
   .hero-actions { flex-direction: column; }
   .btn          { width: 100%; }
 
-  .molecule-grid { grid-template-columns: 1fr; }
   .bench-grid    { grid-template-columns: 1fr; }
 
   .footer-links-grid { grid-template-columns: 1fr; }

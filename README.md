@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # VERDE Materials DB
 
-A minimalist, modern, fully static website for **VERDE Materials DB** — a curated molecular materials database focused on photoredox chemistry, excited-state properties, molecular geometries, and machine-learning-ready data.
+A minimalist, modern, fully static website for **VERDE Materials DB** — a curated molecular materials database focused on ground and excited-state properties, molecular geometries, and machine-learning-ready data from `verde+PCs-02142026.csv`.
 
 ---
 
@@ -9,13 +8,19 @@ A minimalist, modern, fully static website for **VERDE Materials DB** — a cura
 
 ```
 /
-├── index.html    ← All HTML (sections, molecule cards, navigation)
+├── index.html    ← All HTML (sections, database table, navigation)
 ├── styles.css    ← All styling and the design system (colors, layout, components)
-├── script.js     ← All JavaScript (nav, search/filter, animations, copy citation)
+├── script.js     ← All JavaScript (nav, search/filter, hero movie, property distributions, 3D gallery, animations, copy citation)
+├── hero-molecule-movie-data.js ← Random S0 XYZ samples used by the home animation
+├── molecule-gallery-data.js ← All available S0 XYZ geometries used by the 3D gallery
+├── property-distributions-data.js ← Aggregated histograms generated from the CSV
+├── generate-molecule-gallery.py ← Regenerates gallery geometries when the CSV changes
+├── generate-property-distributions.py ← Regenerates property histograms when the CSV changes
+├── verde+PCs-02142026.csv ← Source data file for the database preview and download link
 └── README.md     ← This file
 ```
 
-No build tools, no npm, no dependencies. Open `index.html` in a browser and it works.
+No build tools or npm dependencies are required. The 3D gallery uses 3Dmol.js from a CDN, so it needs internet access when opened.
 
 ---
 
@@ -33,13 +38,13 @@ Your site will be at: `https://USERNAME.github.io/REPOSITORY-NAME/`
 
 **Step 2 — Add the files**
 
-Upload `index.html`, `styles.css`, `script.js`, and `README.md` to the **root** of the repository.
+Upload `index.html`, `styles.css`, `script.js`, `hero-molecule-movie-data.js`, `molecule-gallery-data.js`, `property-distributions-data.js`, `generate-molecule-gallery.py`, `generate-property-distributions.py`, `verde+PCs-02142026.csv`, and `README.md` to the **root** of the repository.
 
 Using git on the command line:
 
 ```bash
 git init
-git add index.html styles.css script.js README.md
+git add index.html styles.css script.js hero-molecule-movie-data.js molecule-gallery-data.js property-distributions-data.js generate-molecule-gallery.py generate-property-distributions.py verde+PCs-02142026.csv README.md
 git commit -m "Initial commit: VERDE Materials DB site"
 git branch -M main
 git remote add origin https://github.com/USERNAME/REPOSITORY-NAME.git
@@ -105,44 +110,69 @@ Open `styles.css` and find **Section 1: CSS Variables**. Edit the values inside 
 }
 ```
 
-### Add a new molecule card
+### Add a new database preview row
 
 1. Open `index.html`
 2. Find the `<!-- DATABASE PREVIEW SECTION -->` comment
-3. Copy any existing `.molecule-card` block
-4. Paste it inside `<div class="molecule-grid" id="moleculeGrid">`
+3. Copy any existing `<tr class="db-row" ...>` row
+4. Paste it inside `<tbody id="moleculeTableBody">`
 5. Update:
-   - `data-name="…"` — lowercase keywords used by the search bar
-   - `data-family="…"` — must match an `<option value="…">` in the dropdown
-   - The molecule name, property values, and tags
+   - `data-name="..."` — lowercase InChIKey, SMILES, and dataset keywords used by the search bar
+   - `data-family="..."` — must match a dataset `<option value="...">` in the dropdown
+   - The table cells for InChIKey, SMILES, property values, atom count, and details link
 
-The search and family filter will include the new card automatically.
+The search and dataset filter will include the new row automatically.
 
-### Add a new family filter option
+### Add a new dataset filter option
 
 In `index.html`, find the `<select id="familyFilter">` element and add:
 
 ```html
-<option value="Your Family Name">Display Label</option>
+<option value="Your Dataset Name">Display Label</option>
 ```
 
-Then add `data-family="Your Family Name"` to the corresponding molecule cards.
+Then add `data-family="Your Dataset Name"` to the corresponding table rows.
+
+### Refresh 3D gallery after changing the CSV
+
+The `3D Gallery` tab uses `molecule-gallery-data.js`, which is generated from all available `xyz_S0` geometries in `verde+PCs-02142026.csv`. After replacing or editing the CSV, regenerate the gallery data:
+
+```bash
+python generate-molecule-gallery.py
+```
+
+Commit both the updated CSV and the regenerated `molecule-gallery-data.js`.
+
+### Refresh property distributions after changing the CSV
+
+The `Properties` tab uses `property-distributions-data.js`, which is generated from `verde+PCs-02142026.csv`. After replacing or editing the CSV, regenerate the distribution data:
+
+```bash
+python generate-property-distributions.py
+```
+
+Commit both the updated CSV and the regenerated `property-distributions-data.js`.
 
 ### Update the BibTeX citation
 
 Open `script.js`, find **Section 6**, and update the `BIBTEX` constant:
 
 ```js
-const BIBTEX = `@article{verde2024,
-  title   = {Your actual paper title},
-  author  = {Lopez, Steven A. and others},
-  ...
+const BIBTEX = `@article{abreha2019virtual,
+  title   = {Virtual Excited State Reference for the Discovery of Electronic Materials Database: An Open-Access Resource for Ground and Excited State Properties of Organic Molecules},
+  author  = {Abreha, Bayileyegn G. and Agarwal, Shashank and Foster, Ian and Blaiszik, Ben and Lopez, Steven A.},
+  journal = {The Journal of Physical Chemistry Letters},
+  year    = {2019},
+  volume  = {10},
+  number  = {21},
+  pages   = {6835--6841},
+  doi     = {10.1021/acs.jpclett.9b02577}
 }`;
 ```
 
 ### Update footer links
 
-Open `index.html`, find the `<!-- CONTACT & FOOTER SECTION -->` comment, and replace the `href="#"` placeholders with your actual GitHub, documentation, and lab page URLs.
+Open `index.html`, find the `<!-- CONTACT & FOOTER SECTION -->` comment, and replace the contact placeholders with your actual lab page and email.
 
 ### Animate a new element on scroll
 
@@ -164,7 +194,3 @@ This site requires zero installation. There is no package.json, no node_modules,
 
 © VERDE Materials DB · Lopez Lab · All rights reserved.  
 Data freely available for research use.
-=======
-# E(3)-VERDE
-E(3)-equivariant model for predicting organic photocatalyst redox windows from molecular geometries.
->>>>>>> 71000bcba8ff51dd2c7ac57d352e911c45fb7ebb
