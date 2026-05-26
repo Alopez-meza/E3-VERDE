@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VERDE Materials DB — A curated molecular materials database for photoredox chemistry, excited-state properties, and machine-learning-ready data.">
+    <title>VERDE Materials DB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+         To edit: update the logo text and nav link labels below.
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="nav-logo-icon">◆</span>
+                VERDE Materials DB
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"      class="nav-link active">Home</a></li>
+                <li><a href="#database"  class="nav-link">Database</a></li>
+                <li><a href="#methods"   class="nav-link">Methods</a></li>
+                <li><a href="#models"    class="nav-link">Models</a></li>
+                <li><a href="#benchmark" class="nav-link">Benchmark</a></li>
+                <li><a href="#contact"   class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO SECTION
+         To edit: update the main title, subtitle, and button labels.
+         To change the stats card numbers, find .hero-stat-value below.
+    ============================================================ -->
+    <section id="home" class="hero">
+        <div class="hero-bg-decoration" aria-hidden="true">
+            <div class="hero-blob hero-blob--1"></div>
+            <div class="hero-blob hero-blob--2"></div>
+            <div class="hero-blob hero-blob--3"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">Open Science &middot; Photoredox Chemistry</div>
+
+                <h1 class="hero-title">
+                    VERDE<br>
+                    <span class="hero-title-accent">Materials DB</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    A curated platform for molecular materials, excited-state properties,
+                    and machine-learning-ready photoredox data.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#database" class="btn btn--primary">Explore Database</a>
+                    <a href="#methods"  class="btn btn--secondary">View Methods</a>
+                </div>
+            </div>
+
+            <!-- Glassmorphism stats card -->
+            <div class="hero-card" aria-label="Database statistics">
+                <div class="hero-card-header">
+                    <span class="hero-card-dot" aria-hidden="true"></span>
+                    Database Statistics
+                </div>
+                <div class="hero-card-stats">
+                    <!-- To edit these numbers, update .hero-stat-value -->
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">6,000+</span>
+                        <span class="hero-stat-label">Molecules</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">47</span>
+                        <span class="hero-stat-label">Families</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">3D</span>
+                        <span class="hero-stat-label">Geometries</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">ML</span>
+                        <span class="hero-stat-label">Ready</span>
+                    </div>
+                </div>
+                <div class="hero-card-tags">
+                    <span class="tag">DFT</span>
+                    <span class="tag">Photoredox</span>
+                    <span class="tag">Excited States</span>
+                    <span class="tag">Open Data</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll-hint" aria-hidden="true">
+            <span class="scroll-arrow"></span>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         DATABASE PREVIEW SECTION
+         To add a molecule: copy any .molecule-card block, paste it
+         inside #moleculeGrid, and update data-name, data-family,
+         molecule name, property values, and tags.
+    ============================================================ -->
+    <section id="database" class="database">
+        <div class="section-container">
+
+            <div class="section-header reveal">
+                <span class="section-label">Dataset Preview</span>
+                <h2 class="section-title">Molecular Database</h2>
+                <p class="section-subtitle">
+                    Browse a curated selection of photoredox-active molecules with
+                    DFT-computed ground-state and excited-state redox potentials.
+                </p>
+            </div>
+
+            <!-- Search and filter controls -->
+            <div class="db-controls reveal">
+                <div class="search-wrapper">
+                    <span class="search-icon" aria-hidden="true">&#9906;</span>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="Search by name or molecular family&hellip;"
+                        aria-label="Search molecules"
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                </div>
+                <div class="filter-wrapper">
+                    <select id="familyFilter" class="filter-select" aria-label="Filter by family">
+                        <option value="">All Families</option>
+                        <option value="Transition Metal Complex">Metal Complexes</option>
+                        <option value="Organic TADF">Organic TADF</option>
+                        <option value="Organic Dye">Organic Dyes</option>
+                        <option value="Acridinium">Acridinium</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Molecule cards grid -->
+            <div class="molecule-grid" id="moleculeGrid">
+
+                <!-- ── Card 1: Ru(bpy)3 ── -->
+                <div class="molecule-card" data-name="ru(bpy)3 ruthenium" data-family="Transition Metal Complex">
+                    <div class="molecule-card-header">
+                        <div class="molecule-id">
+                            <h3 class="molecule-name">[Ru(bpy)<sub>3</sub>]<sup>2+</sup></h3>
+                            <span class="molecule-family">Transition Metal Complex</span>
+                        </div>
+                        <div class="molecule-tags">
+                            <span class="tag tag--green">DFT</span>
+                            <span class="tag tag--teal">Photoredox</span>
+                            <span class="tag tag--lime">ML-ready</span>
+                        </div>
+                    </div>
+                    <div class="molecule-props">
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">+1.29 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">&minus;1.33 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">&minus;0.81 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">+0.77 V</span>
+                        </div>
+                    </div>
+                    <div class="molecule-footer">
+                        <span class="molecule-unit">vs. SCE &middot; MeCN</span>
+                        <a href="#" class="molecule-link">View details &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- ── Card 2: Ir(ppy)3 ── -->
+                <div class="molecule-card" data-name="ir(ppy)3 iridium" data-family="Transition Metal Complex">
+                    <div class="molecule-card-header">
+                        <div class="molecule-id">
+                            <h3 class="molecule-name">Ir(ppy)<sub>3</sub></h3>
+                            <span class="molecule-family">Transition Metal Complex</span>
+                        </div>
+                        <div class="molecule-tags">
+                            <span class="tag tag--green">DFT</span>
+                            <span class="tag tag--teal">Photoredox</span>
+                        </div>
+                    </div>
+                    <div class="molecule-props">
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">+0.77 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">&minus;2.19 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">&minus;1.51 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">+0.31 V</span>
+                        </div>
+                    </div>
+                    <div class="molecule-footer">
+                        <span class="molecule-unit">vs. SCE &middot; MeCN</span>
+                        <a href="#" class="molecule-link">View details &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- ── Card 3: 4CzIPN ── -->
+                <div class="molecule-card" data-name="4czipn carbazole" data-family="Organic TADF">
+                    <div class="molecule-card-header">
+                        <div class="molecule-id">
+                            <h3 class="molecule-name">4CzIPN</h3>
+                            <span class="molecule-family">Organic TADF</span>
+                        </div>
+                        <div class="molecule-tags">
+                            <span class="tag tag--green">DFT</span>
+                            <span class="tag tag--teal">Photoredox</span>
+                            <span class="tag tag--lime">ML-ready</span>
+                        </div>
+                    </div>
+                    <div class="molecule-props">
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">+1.52 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">&minus;1.04 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">&minus;0.48 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">+0.96 V</span>
+                        </div>
+                    </div>
+                    <div class="molecule-footer">
+                        <span class="molecule-unit">vs. SCE &middot; MeCN</span>
+                        <a href="#" class="molecule-link">View details &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- ── Card 4: Eosin Y ── -->
+                <div class="molecule-card" data-name="eosin y xanthene dye" data-family="Organic Dye">
+                    <div class="molecule-card-header">
+                        <div class="molecule-id">
+                            <h3 class="molecule-name">Eosin Y</h3>
+                            <span class="molecule-family">Organic Dye</span>
+                        </div>
+                        <div class="molecule-tags">
+                            <span class="tag tag--green">DFT</span>
+                            <span class="tag tag--teal">Photoredox</span>
+                        </div>
+                    </div>
+                    <div class="molecule-props">
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">+0.78 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">&minus;1.06 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">&minus;1.06 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">+0.78 V</span>
+                        </div>
+                    </div>
+                    <div class="molecule-footer">
+                        <span class="molecule-unit">vs. SCE &middot; MeCN</span>
+                        <a href="#" class="molecule-link">View details &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- ── Card 5: Rose Bengal ── -->
+                <div class="molecule-card" data-name="rose bengal halogenated dye" data-family="Organic Dye">
+                    <div class="molecule-card-header">
+                        <div class="molecule-id">
+                            <h3 class="molecule-name">Rose Bengal</h3>
+                            <span class="molecule-family">Organic Dye</span>
+                        </div>
+                        <div class="molecule-tags">
+                            <span class="tag tag--green">DFT</span>
+                            <span class="tag tag--orange">Benchmark</span>
+                        </div>
+                    </div>
+                    <div class="molecule-props">
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">+0.84 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">&minus;0.99 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">&minus;0.96 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">+0.81 V</span>
+                        </div>
+                    </div>
+                    <div class="molecule-footer">
+                        <span class="molecule-unit">vs. SCE &middot; MeCN</span>
+                        <a href="#" class="molecule-link">View details &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- ── Card 6: Mes-Acridinium ── -->
+                <div class="molecule-card" data-name="mes-acridinium mesityl" data-family="Acridinium">
+                    <div class="molecule-card-header">
+                        <div class="molecule-id">
+                            <h3 class="molecule-name">Mes-Acridinium</h3>
+                            <span class="molecule-family">Acridinium</span>
+                        </div>
+                        <div class="molecule-tags">
+                            <span class="tag tag--green">DFT</span>
+                            <span class="tag tag--teal">Photoredox</span>
+                            <span class="tag tag--lime">ML-ready</span>
+                        </div>
+                    </div>
+                    <div class="molecule-props">
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">+1.89 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>0</sub>)</span>
+                            <span class="prop-value">&minus;0.57 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>ox</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">&minus;0.36 V</span>
+                        </div>
+                        <div class="prop-row">
+                            <span class="prop-label">E<sub>red</sub>(S<sub>1</sub>)</span>
+                            <span class="prop-value">+1.36 V</span>
+                        </div>
+                    </div>
+                    <div class="molecule-footer">
+                        <span class="molecule-unit">vs. SCE &middot; MeCN</span>
+                        <a href="#" class="molecule-link">View details &rarr;</a>
+                    </div>
+                </div>
+
+            </div><!-- end #moleculeGrid -->
+
+            <!-- No-results message (shown by JS when search yields nothing) -->
+            <div class="db-no-results" id="noResults" hidden>
+                <p>No molecules match your search. Try a different name or filter.</p>
+            </div>
+
+            <div class="db-cta reveal">
+                <p class="db-cta-note">Showing 6 example molecules. The full database contains 6,000+ entries.</p>
+                <a href="#contact" class="btn btn--outline">Request Access</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         METHODS SECTION
+         To edit: update each .method-card title, icon, and description.
+    ============================================================ -->
+    <section id="methods" class="methods">
+        <div class="section-container">
+
+            <div class="section-header reveal">
+                <span class="section-label">Computational Approach</span>
+                <h2 class="section-title">Methods &amp; Data</h2>
+                <p class="section-subtitle">
+                    All molecular data is generated using high-level quantum chemistry methods
+                    with consistent protocols applied uniformly across the dataset.
+                </p>
+            </div>
+
+            <div class="methods-grid">
+
+                <div class="method-card reveal reveal-delay-1">
+                    <div class="method-icon" aria-hidden="true">&#9883;</div>
+                    <h3 class="method-title">DFT Properties</h3>
+                    <p class="method-desc">
+                        Ground-state molecular properties computed using density functional theory
+                        with calibrated exchange-correlation functionals optimized for redox potential prediction.
+                    </p>
+                </div>
+
+                <div class="method-card reveal reveal-delay-2">
+                    <div class="method-icon" aria-hidden="true">&#10022;</div>
+                    <h3 class="method-title">Excited-State Redox</h3>
+                    <p class="method-desc">
+                        Excited-state oxidation and reduction potentials derived from time-dependent DFT (TD-DFT)
+                        using the Rehm&ndash;Weller thermodynamic framework.
+                    </p>
+                </div>
+
+                <div class="method-card reveal reveal-delay-3">
+                    <div class="method-icon" aria-hidden="true">&#9678;</div>
+                    <h3 class="method-title">3D Geometries</h3>
+                    <p class="method-desc">
+                        Optimized ground-state (S<sub>0</sub>) and excited-state (S<sub>1</sub>, T<sub>1</sub>)
+                        molecular geometries stored in standard XYZ and SDF formats.
+                    </p>
+                </div>
+
+                <div class="method-card reveal reveal-delay-4">
+                    <div class="method-icon" aria-hidden="true">&#8862;</div>
+                    <h3 class="method-title">ML-Ready Descriptors</h3>
+                    <p class="method-desc">
+                        Curated molecular fingerprints, SMILES strings, and graph-based representations
+                        for direct use in machine learning pipelines.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         MODELS SECTION
+         Placeholder for future ML model deployment.
+         To edit: update the feature list and the coming-soon card text.
+    ============================================================ -->
+    <section id="models" class="models">
+        <div class="section-container">
+            <div class="models-inner">
+
+                <div class="models-content reveal">
+                    <span class="section-label section-label--light">Machine Learning</span>
+                    <h2 class="section-title section-title--light">Predictive Models</h2>
+                    <p class="models-desc">
+                        Future deployment of equivariant neural networks trained on VERDE Materials DB
+                        for fast, accurate prediction of molecular photoredox properties.
+                    </p>
+                    <!-- To add a feature, copy a .models-feature list item -->
+                    <ul class="models-features">
+                        <li class="models-feature">
+                            <span class="feature-dot" aria-hidden="true"></span>
+                            E(3)-equivariant neural networks
+                        </li>
+                        <li class="models-feature">
+                            <span class="feature-dot" aria-hidden="true"></span>
+                            3D molecular graph representations
+                        </li>
+                        <li class="models-feature">
+                            <span class="feature-dot" aria-hidden="true"></span>
+                            Scalar and vector molecular property targets
+                        </li>
+                        <li class="models-feature">
+                            <span class="feature-dot" aria-hidden="true"></span>
+                            Browser-based model inference (coming soon)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Glassmorphism coming-soon card -->
+                <div class="models-card reveal reveal-delay-2">
+                    <div class="models-coming-soon">
+                        <div class="coming-soon-badge">Coming Soon</div>
+                        <h3 class="coming-soon-title">Model Inference</h3>
+                        <p class="coming-soon-desc">
+                            Online prediction of excited-state redox potentials directly from
+                            molecular SMILES or 3D geometry input.
+                        </p>
+                        <div class="coming-soon-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Input</span>
+                                <span class="spec-val">SMILES &middot; XYZ &middot; SDF</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Output</span>
+                                <span class="spec-val">E<sub>ox</sub> &middot; E<sub>red</sub> &middot; &Delta;E<sub>00</sub></span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Runtime</span>
+                                <span class="spec-val">WebAssembly &middot; ONNX</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn--primary btn--sm">Get Notified</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         BENCHMARK SECTION
+         To edit: update .bench-value and .bench-label in each card.
+         To add a card: copy a .bench-stat div and paste inside .bench-grid.
+    ============================================================ -->
+    <section id="benchmark" class="benchmark">
+        <div class="section-container">
+
+            <div class="section-header reveal">
+                <span class="section-label">Database Scale</span>
+                <h2 class="section-title">By the Numbers</h2>
+                <p class="section-subtitle">
+                    A large-scale, consistently computed dataset designed for benchmarking
+                    and training machine learning models on photoredox properties.
+                </p>
+            </div>
+
+            <div class="bench-grid">
+
+                <div class="bench-stat reveal reveal-delay-1">
+                    <span class="bench-value">6,000+</span>
+                    <span class="bench-label">Molecules</span>
+                    <span class="bench-note">Photoredox-active organic and metal-organic compounds</span>
+                </div>
+
+                <div class="bench-stat reveal reveal-delay-2">
+                    <span class="bench-value">Multiple</span>
+                    <span class="bench-label">Redox Targets</span>
+                    <span class="bench-note">
+                        E<sub>ox</sub>(S<sub>0</sub>), E<sub>red</sub>(S<sub>0</sub>),
+                        E<sub>ox</sub>(S<sub>1</sub>), E<sub>red</sub>(S<sub>1</sub>) per molecule
+                    </span>
+                </div>
+
+                <div class="bench-stat reveal reveal-delay-3">
+                    <span class="bench-value">3D</span>
+                    <span class="bench-label">Geometries</span>
+                    <span class="bench-note">
+                        Optimized S<sub>0</sub>, S<sub>1</sub>, and T<sub>1</sub> structures in XYZ format
+                    </span>
+                </div>
+
+                <div class="bench-stat reveal reveal-delay-4">
+                    <span class="bench-value">&#10003;</span>
+                    <span class="bench-label">Benchmark-Ready</span>
+                    <span class="bench-note">Experimental reference set for model validation and error analysis</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT & FOOTER SECTION
+         To edit: replace placeholder URLs, email, lab name, and citation.
+    ============================================================ -->
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo-icon" aria-hidden="true">◆</span>
+                    <h2 class="footer-logo">VERDE Materials DB</h2>
+                    <!-- Update this tagline to match your lab's description -->
+                    <p class="footer-tagline">
+                        Curated molecular materials data for photoredox chemistry and machine learning research.
+                    </p>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Navigate</h4>
+                        <ul class="footer-col-links">
+                            <li><a href="#database"  class="footer-link">Database</a></li>
+                            <li><a href="#methods"   class="footer-link">Methods</a></li>
+                            <li><a href="#models"    class="footer-link">Models</a></li>
+                            <li><a href="#benchmark" class="footer-link">Benchmark</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Resources</h4>
+                        <ul class="footer-col-links">
+                            <!-- Replace # with your actual GitHub and documentation URLs -->
+                            <li><a href="#" class="footer-link">GitHub Repository</a></li>
+                            <li><a href="#" class="footer-link">Documentation</a></li>
+                            <li><a href="#" class="footer-link">Citation (BibTeX)</a></li>
+                            <li><a href="#" class="footer-link">Data Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Contact</h4>
+                        <ul class="footer-col-links">
+                            <!-- Replace with your actual lab page and email -->
+                            <li><a href="#" class="footer-link">Lopez Lab</a></li>
+                            <li><a href="mailto:contact@example.edu" class="footer-link">contact@example.edu</a></li>
+                            <li><a href="#" class="footer-link">Northwestern University</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Citation block — update when paper is published -->
+            <div class="footer-citation">
+                <h4 class="footer-col-title">Citation</h4>
+                <div class="citation-box">
+                    <p class="citation-text">
+                        Lopez, S.A. et al. <em>VERDE Materials DB: A Curated Database for Photoredox Chemistry.</em>
+                        <em>Journal Name</em> <strong>Year</strong>, Vol., Pages. DOI: 10.XXXX/XXXXXXX
+                    </p>
+                    <!-- The onclick is handled in script.js via event listener -->
+                    <button class="btn btn--cite" id="copyCitationBtn">Copy BibTeX</button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2024 VERDE Materials DB &middot; Lopez Lab &middot; All rights reserved.</p>
+                <p class="footer-copy">Built for open science &middot; Data freely available for research use.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
