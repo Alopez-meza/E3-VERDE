@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(mkdir -p \"C:/Users/ACLop/Downloads/web-page/.claude\")",
-      "mcp__Claude_Preview__preview_start"
-    ]
-  }
-}
