@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VERDE Materials DB
 
 A minimalist, modern, fully static website for **VERDE Materials DB** — a curated molecular materials database focused on photoredox chemistry, excited-state properties, molecular geometries, and machine-learning-ready data.
@@ -163,3 +164,7 @@ This site requires zero installation. There is no package.json, no node_modules,
 
 © VERDE Materials DB · Lopez Lab · All rights reserved.  
 Data freely available for research use.
+=======
+# E(3)-VERDE
+E(3)-equivariant model for predicting organic photocatalyst redox windows from molecular geometries.
+>>>>>>> 71000bcba8ff51dd2c7ac57d352e911c45fb7ebb
