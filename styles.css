@@ -346,9 +346,16 @@ section { scroll-margin-top: var(--nav-h); }
 }
 .navbar.scrolled .nav-logo { color: var(--c-forest); }
 
-.nav-logo-icon {
-  color: var(--c-accent);
-  font-size: 1.05rem;
+.nav-logo-img {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.footer-logo-img {
+  display: block;
+  margin-bottom: 10px;
+  object-fit: contain;
 }
 
 /* Nav links list */
