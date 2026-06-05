@@ -69,13 +69,6 @@ Everything below ships with the clone — **documentation, code, figures, and da
 
 **Figures from your own runs** (loss curves, parity plots, etc.) are **not** stored in the repo. They are generated locally under `data/figures/` when you train — that folder is gitignored and recreated on each run.
 
-## Data availability
-
-The VERDE+PCs training database and numerical results are described in the paper and Supporting Information. They are not bundled in this repository.
-
-For local training, place the VERDE JSON database as `verde+PCs.json` in the project root.
-
-To train on VERDE+PCs, your own JSON database, or a model you trained yourself, see [tutorial/README.md — Your own database and custom models](tutorial/README.md#your-own-database-and-custom-models).
 
 ## Install
 
@@ -168,7 +161,7 @@ data/              Local runtime outputs only (gitignored; not on GitHub)
 
 If you use this code, please cite the paper and [e3nn](https://e3nn.org/):
 
-> Andres C. Lopez, Leticia A. Gomes, and Steven A. Lopez, *E(3)-VERDE: A 3D-Equivariant Neural Network for the Complete Ground- and Excited-State Redox Landscape of Organic Photocatalysts*, 2026. *(publication details TBD)*
+> Andres C. Lopez, Leticia A. Gomes, and Steven A. Lopez, *E(3)-VERDE: A 3D-Equivariant Neural Network for the Complete Ground- and Excited-State Redox Landscape of Organic Photocatalysts*, 2026. *(publication TBD)*
 
 ## License
 
