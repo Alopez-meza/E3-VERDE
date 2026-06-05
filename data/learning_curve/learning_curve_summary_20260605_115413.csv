@@ -1,0 +1,2 @@
+fraction,n_train,MAE_mean,MAE_std,RMSE_mean,RMSE_std,R2_mean,R2_std,Spearman_mean,Spearman_std
+0.05,9,0.676019124686718,0.0,0.865574925152553,0.0,-0.028073783750233394,0.0,0.1666666666666667,0.0

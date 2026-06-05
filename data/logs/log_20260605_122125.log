@@ -1,0 +1,18 @@
+2026-06-05 12:21:25 [INFO] Logging initialized: data\logs\log_20260605_122125.log
+2026-06-05 12:21:25 [INFO] Random seed set to 42
+2026-06-05 12:21:25 [INFO] Device: cpu
+2026-06-05 12:21:25 [INFO] Loading dataset...
+2026-06-05 12:21:26 [INFO] Dataset: 73 valid entries
+2026-06-05 12:21:26 [INFO] Splits: 57 train, 8 val, 8 test
+2026-06-05 12:21:26 [INFO] Auto-detection: unimodal distribution -> StandardScaler
+2026-06-05 12:21:26 [INFO] TargetNormalizer (scalar): strategy=standard
+2026-06-05 12:21:26 [INFO] Dataset: 73 molecules (57 train, 8 val, 8 test), target=scalar
+2026-06-05 12:21:26 [INFO] Distribution diagnosis: N=57, mean=1.9821, median=2.0200, std=0.6320, peaks=1, bimodal=False
+2026-06-05 12:21:27 [INFO]   Layer 1: irreps changed 48x0e+48x1o+48x2e -> 48x0e+48x1o+48x1e+48x2o+48x2e (residual will be skipped for this layer)
+2026-06-05 12:21:28 [INFO]   Layer 2: irreps changed 48x0e+48x1o+48x1e+48x2o+48x2e -> 48x0o+48x0e+48x1o+48x1e+48x2o+48x2e (residual will be skipped for this layer)
+2026-06-05 12:21:30 [INFO] Attention readout enabled (learned scalar weights per atom)
+2026-06-05 12:21:30 [INFO] Output MLP: 96 -> ... -> 1 (1 layers)
+2026-06-05 12:21:30 [INFO] Restored scalar normalizer: type=standard
+2026-06-05 12:21:31 [INFO] Predictions saved: data\predictions\predictions_20260605_122131.csv
+2026-06-05 12:21:31 [INFO] Predictions: 3 molecules
+2026-06-05 12:21:31 [INFO] Completed successfully!

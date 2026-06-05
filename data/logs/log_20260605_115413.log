@@ -1,0 +1,176 @@
+2026-06-05 11:54:13 [INFO] Logging initialized: data\logs\log_20260605_115413.log
+2026-06-05 11:54:13 [INFO] ============================================================
+2026-06-05 11:54:13 [INFO] LEARNING CURVE: PERFORMANCE vs. DATASET SIZE
+2026-06-05 11:54:13 [INFO] ============================================================
+2026-06-05 11:54:13 [INFO] Config: tutorial/configs/learning_curve_demo.json
+2026-06-05 11:54:13 [INFO] Fractions: [0.05]
+2026-06-05 11:54:13 [INFO] Repeats per fraction: 1
+2026-06-05 11:54:13 [INFO] Epochs per run: 2
+2026-06-05 11:54:13 [INFO] Device: cpu
+2026-06-05 11:54:13 [INFO] Random seed set to 42
+2026-06-05 11:54:13 [INFO] Dataset: 73 valid entries
+2026-06-05 11:54:13 [INFO] Splits: 57 train, 8 val, 8 test
+2026-06-05 11:54:13 [INFO] Auto-detection: unimodal distribution -> StandardScaler
+2026-06-05 11:54:13 [INFO] TargetNormalizer (scalar): strategy=standard
+2026-06-05 11:54:13 [INFO] Dataset: 73 total, 65 train+val pool, 8 fixed test
+2026-06-05 11:54:13 [INFO] 
+============================================================
+2026-06-05 11:54:13 [INFO] FRACTION 5%: 10 molecules from pool
+2026-06-05 11:54:13 [INFO] ============================================================
+2026-06-05 11:54:13 [INFO] Random seed set to 42
+2026-06-05 11:54:13 [INFO] TargetNormalizer (scalar): strategy=robust
+2026-06-05 11:54:13 [INFO]   Repeat 1/1: 9 train, 1 val, 8 test (seed=42)
+2026-06-05 11:54:13 [INFO] Logging initialized: data\logs\log_20260605_115413.log
+2026-06-05 11:54:13 [INFO] Computed avg_num_neighbors=15.5 from 9 molecules (cutoff=5.0)
+2026-06-05 11:54:13 [INFO] Random seed set to 42
+2026-06-05 11:54:13 [INFO] ============================================================
+2026-06-05 11:54:13 [INFO] OPTUNA HYPERPARAMETER OPTIMIZATION
+2026-06-05 11:54:13 [INFO] ============================================================
+2026-06-05 11:54:13 [INFO] Device: cpu
+2026-06-05 11:54:13 [INFO] Config: data_/hpo/oxS0/config_hpo.json
+2026-06-05 11:54:13 [INFO] Trials: 1
+2026-06-05 11:54:13 [INFO] HPO epochs per trial: 2
+2026-06-05 11:54:13 [INFO] Retrain epochs: 300
+2026-06-05 11:54:13 [INFO] Startup trials (random): 10
+2026-06-05 11:54:13 [INFO] Pruning warmup epochs: 10
+2026-06-05 11:54:13 [INFO] Loading dataset (shared across all trials)...
+2026-06-05 11:54:14 [INFO]   Layer 1: irreps changed 32x0e+32x1o+32x2e -> 32x0e+32x1o+32x1e+32x2o+32x2e (residual will be skipped for this layer)
+2026-06-05 11:54:15 [INFO] Dataset: 5552 valid entries
+2026-06-05 11:54:15 [INFO]   Layer 2: irreps changed 32x0e+32x1o+32x1e+32x2o+32x2e -> 32x0o+32x0e+32x1o+32x1e+32x2o+32x2e (residual will be skipped for this layer)
+2026-06-05 11:54:16 [INFO] Splits: 4440 train, 556 val, 556 test
+2026-06-05 11:54:16 [INFO] Auto-detection: unimodal distribution -> StandardScaler
+2026-06-05 11:54:16 [INFO] TargetNormalizer (scalar): strategy=standard
+2026-06-05 11:54:16 [INFO] Output MLP: 64 -> ... -> 1 (1 layers)
+2026-06-05 11:54:16 [INFO] Model: 231,841 parameters, output irreps=1x0e
+2026-06-05 11:54:16 [INFO] Optimizer: AdamW, 9 params with WD=1e-05, 17 params without WD (bias/norm)
+2026-06-05 11:54:16 [INFO] Loss function: L1Loss
+2026-06-05 11:54:16 [INFO] Early stopping monitored on: val set (1 samples)
+2026-06-05 11:54:17 [INFO] Dataset: 5552 molecules, 4440 train, 556 val, 556 test, target=scalar
+2026-06-05 11:54:17 [INFO] Created new Optuna study
+2026-06-05 11:54:18 [INFO] Computed avg_num_neighbors=20.3 from 200 molecules (cutoff=6.0)
+2026-06-05 11:54:20 [INFO]   Layer 1: irreps changed 16x0e+16x1o -> 16x0e+16x1o+16x1e (residual will be skipped for this layer)
+2026-06-05 11:54:22 [INFO]   Layer 2: irreps changed 16x0e+16x1o+16x1e -> 16x0o+16x0e+16x1o+16x1e (residual will be skipped for this layer)
+2026-06-05 11:54:25 [INFO] Multi-scale readout: per-layer scalar dims = [16, 16, 32, 32, 32], total = 128
+2026-06-05 11:54:25 [INFO] Attention readout enabled (learned scalar weights per atom)
+2026-06-05 11:54:25 [INFO] Output MLP: 128 -> ... -> 1 (1 layers)
+2026-06-05 11:54:25 [INFO] Model: 151,490 parameters, output irreps=1x0e
+2026-06-05 11:54:25 [INFO] Optimizer: AdamW, 13 params with WD=5.987474910461405e-05, 29 params without WD (bias/norm)
+2026-06-05 11:54:25 [INFO] Loss function: L1Loss
+2026-06-05 11:54:25 [INFO] EMA enabled with decay=0.999
+2026-06-05 11:54:26 [INFO] Epoch 001: Train L1=0.6140, Val L1=1.2080, LR=1.00e-03
+2026-06-05 11:54:34 [INFO] Epoch 002: Train L1=0.6379, Val L1=1.1408, LR=1.00e-07
+2026-06-05 11:54:34 [INFO] Loaded best model from epoch 2
+2026-06-05 11:54:37 [INFO]     MAE=0.6760, R2=-0.0281, Spearman=0.1667, best_epoch=1
+2026-06-05 11:54:37 [INFO] 
+Results saved: data/learning_curve\learning_curve_20260605_115413.csv
+2026-06-05 11:54:37 [INFO] Summary saved: data/learning_curve\learning_curve_summary_20260605_115413.csv
+2026-06-05 11:54:37 [INFO] 
+=== LEARNING CURVE SUMMARY ===
+2026-06-05 11:54:37 [INFO]   5% (9 train): MAE=0.6760+/-0.0000, R2=-0.0281+/-0.0000, Spearman=0.1667
+2026-06-05 11:54:38 [INFO] Plot saved: data/learning_curve\learning_curve_20260605_115413.png
+2026-06-05 11:54:39 [INFO] Publication plot saved: data/learning_curve\learning_curve_publication_20260605_115413.png
+2026-06-05 11:54:59 [INFO] Early stopping monitored on: val set (556 samples)
+2026-06-05 11:59:15 [INFO] Epoch 001: Train L1=0.5542, Val L1=0.8156, LR=1.07e-03
+2026-06-05 12:00:58 [INFO] Epoch 002: Train L1=0.3839, Val L1=0.7287, LR=1.07e-03
+2026-06-05 12:00:58 [INFO] Loaded best model from epoch 2
+2026-06-05 12:00:58 [INFO] Trial 0: val_loss=0.7287, params=151,490, best_epoch=1, mul=16, layers=5, lmax=1, lr=1.1e-03
+2026-06-05 12:00:59 [INFO] Study saved after trial 0: 1 complete, 0 pruned, best=0.7287
+2026-06-05 12:00:59 [INFO] Study checkpoint saved: data/optuna\study_20260605_115413.pkl
+2026-06-05 12:00:59 [INFO] Optimization completed in 6.7 minutes
+2026-06-05 12:00:59 [INFO] ============================================================
+2026-06-05 12:00:59 [INFO] OPTIMIZATION RESULTS
+2026-06-05 12:00:59 [INFO] ============================================================
+2026-06-05 12:00:59 [INFO] Completed: 1, Pruned: 0, Failed: 0
+2026-06-05 12:00:59 [INFO] Pruning rate: 0.0%
+2026-06-05 12:00:59 [INFO] 
+Best trial #0: val_loss = 0.728746
+2026-06-05 12:00:59 [INFO]   Hyperparameters:
+2026-06-05 12:00:59 [INFO]     batch_size: 16
+2026-06-05 12:00:59 [INFO]     clip_grad_norm: 10.0
+2026-06-05 12:00:59 [INFO]     dropout: 0.1
+2026-06-05 12:00:59 [INFO]     em_dim: 64
+2026-06-05 12:00:59 [INFO]     layers: 5
+2026-06-05 12:00:59 [INFO]     learning_rate: 0.0010677482709481358
+2026-06-05 12:00:59 [INFO]     lmax: 1
+2026-06-05 12:00:59 [INFO]     loss_function: l1
+2026-06-05 12:00:59 [INFO]     max_radius: 6.0
+2026-06-05 12:00:59 [INFO]     mul: 16
+2026-06-05 12:00:59 [INFO]     number_of_basis: 32
+2026-06-05 12:00:59 [INFO]     output_mlp_hidden: 128
+2026-06-05 12:00:59 [INFO]     output_mlp_layers: 1
+2026-06-05 12:00:59 [INFO]     radial_layers: 1
+2026-06-05 12:00:59 [INFO]     radial_neurons: 128
+2026-06-05 12:00:59 [INFO]     readout_type: attention
+2026-06-05 12:00:59 [INFO]     scheduler_type: plateau
+2026-06-05 12:00:59 [INFO]     use_ema: True
+2026-06-05 12:00:59 [INFO]     use_multiscale_readout: True
+2026-06-05 12:00:59 [INFO]     weight_decay: 5.987474910461405e-05
+2026-06-05 12:00:59 [INFO] Best config saved: data/optuna\best_config_20260605_115413.json
+2026-06-05 12:00:59 [INFO] Results saved: data/optuna\results_20260605_115413.json
+2026-06-05 12:00:59 [WARNING] Could not plot parameter importance: Cannot evaluate parameter importances with only a single trial.
+2026-06-05 12:00:59 [INFO] ============================================================
+2026-06-05 12:00:59 [INFO] RETRAINING BEST MODEL WITH FULL EPOCHS
+2026-06-05 12:00:59 [INFO] ============================================================
+2026-06-05 12:00:59 [INFO] Random seed set to 42
+2026-06-05 12:01:00 [INFO] Dataset: 5552 valid entries
+2026-06-05 12:01:00 [INFO] Splits: 4440 train, 556 val, 556 test
+2026-06-05 12:01:00 [INFO] Auto-detection: unimodal distribution -> StandardScaler
+2026-06-05 12:01:00 [INFO] TargetNormalizer (scalar): strategy=standard
+2026-06-05 12:01:01 [INFO] Retrain dataset: 5552 molecules, 4440 train, 556 val, 556 test
+2026-06-05 12:01:01 [INFO] Computed avg_num_neighbors=20.3 from 200 molecules (cutoff=6.0)
+2026-06-05 12:01:01 [INFO]   Layer 1: irreps changed 16x0e+16x1o -> 16x0e+16x1o+16x1e (residual will be skipped for this layer)
+2026-06-05 12:01:02 [INFO]   Layer 2: irreps changed 16x0e+16x1o+16x1e -> 16x0o+16x0e+16x1o+16x1e (residual will be skipped for this layer)
+2026-06-05 12:01:02 [INFO] Multi-scale readout: per-layer scalar dims = [16, 16, 32, 32, 32], total = 128
+2026-06-05 12:01:02 [INFO] Attention readout enabled (learned scalar weights per atom)
+2026-06-05 12:01:02 [INFO] Output MLP: 128 -> ... -> 1 (1 layers)
+2026-06-05 12:01:02 [INFO] Model: 151,490 parameters, output irreps=1x0e
+2026-06-05 12:01:02 [INFO] Optimizer: AdamW, 13 params with WD=5.987474910461405e-05, 29 params without WD (bias/norm)
+2026-06-05 12:01:02 [INFO] Loss function: L1Loss
+2026-06-05 12:01:02 [INFO] EMA enabled with decay=0.999
+2026-06-05 12:01:17 [INFO] Early stopping monitored on: val set (556 samples)
+2026-06-05 12:03:00 [INFO] Epoch 001: Train L1=0.5540, Val L1=0.8156, LR=1.07e-03
+2026-06-05 12:05:17 [INFO] Epoch 002: Train L1=0.3810, Val L1=0.7297, LR=1.07e-03
+2026-06-05 12:09:13 [INFO] Epoch 003: Train L1=0.3030, Val L1=0.6412, LR=1.07e-03
+2026-06-05 12:11:34 [INFO] Epoch 004: Train L1=0.2769, Val L1=0.5593, LR=1.07e-03
+2026-06-05 12:13:39 [INFO] Epoch 005: Train L1=0.2603, Val L1=0.4893, LR=1.07e-03
+2026-06-05 12:15:42 [INFO] Epoch 006: Train L1=0.2376, Val L1=0.4306, LR=1.07e-03
+2026-06-05 12:18:01 [INFO] Epoch 007: Train L1=0.2218, Val L1=0.3770, LR=1.07e-03
+2026-06-05 12:20:25 [INFO] Epoch 008: Train L1=0.2138, Val L1=0.3311, LR=1.07e-03
+2026-06-05 12:23:28 [INFO] Epoch 009: Train L1=0.2003, Val L1=0.2959, LR=1.07e-03
+2026-06-05 12:27:56 [INFO] Epoch 010: Train L1=0.1942, Val L1=0.2654, LR=1.07e-03
+2026-06-05 12:33:35 [INFO] Epoch 011: Train L1=0.1856, Val L1=0.2387, LR=1.07e-03
+2026-06-05 12:37:54 [INFO] Epoch 012: Train L1=0.1782, Val L1=0.2179, LR=1.07e-03
+2026-06-05 12:42:00 [INFO] Epoch 013: Train L1=0.1732, Val L1=0.2004, LR=1.07e-03
+2026-06-05 12:43:50 [INFO] Epoch 014: Train L1=0.1621, Val L1=0.1859, LR=1.07e-03
+2026-06-05 12:46:31 [INFO] Epoch 015: Train L1=0.1597, Val L1=0.1738, LR=1.07e-03
+2026-06-05 12:48:49 [INFO] Epoch 016: Train L1=0.1526, Val L1=0.1638, LR=1.07e-03
+2026-06-05 12:51:24 [INFO] Epoch 017: Train L1=0.1478, Val L1=0.1540, LR=1.07e-03
+2026-06-05 12:53:19 [INFO] Epoch 018: Train L1=0.1463, Val L1=0.1466, LR=1.07e-03
+2026-06-05 12:56:03 [INFO] Epoch 019: Train L1=0.1398, Val L1=0.1402, LR=1.07e-03
+2026-06-05 12:58:40 [INFO] Epoch 020: Train L1=0.1413, Val L1=0.1342, LR=1.07e-03
+2026-06-05 13:00:32 [INFO] Epoch 021: Train L1=0.1387, Val L1=0.1301, LR=1.07e-03
+2026-06-05 13:02:15 [INFO] Epoch 022: Train L1=0.1364, Val L1=0.1265, LR=1.07e-03
+2026-06-05 13:04:15 [INFO] Epoch 023: Train L1=0.1310, Val L1=0.1233, LR=1.07e-03
+2026-06-05 13:05:56 [INFO] Epoch 024: Train L1=0.1311, Val L1=0.1205, LR=1.07e-03
+2026-06-05 13:07:37 [INFO] Epoch 025: Train L1=0.1275, Val L1=0.1189, LR=1.07e-03
+2026-06-05 13:09:20 [INFO] Epoch 026: Train L1=0.1235, Val L1=0.1182, LR=1.07e-03
+2026-06-05 13:11:01 [INFO] Epoch 027: Train L1=0.1230, Val L1=0.1171, LR=1.07e-03
+2026-06-05 13:12:40 [INFO] Epoch 028: Train L1=0.1257, Val L1=0.1166, LR=1.07e-03
+2026-06-05 13:14:23 [INFO] Epoch 029: Train L1=0.1226, Val L1=0.1161, LR=1.07e-03
+2026-06-05 13:16:04 [INFO] Epoch 030: Train L1=0.1146, Val L1=0.1151, LR=1.07e-03
+2026-06-05 13:17:46 [INFO] Epoch 031: Train L1=0.1147, Val L1=0.1132, LR=1.07e-03
+2026-06-05 13:19:33 [INFO] Epoch 032: Train L1=0.1149, Val L1=0.1120, LR=1.07e-03
+2026-06-05 13:21:13 [INFO] Epoch 033: Train L1=0.1110, Val L1=0.1111, LR=1.07e-03
+2026-06-05 13:22:49 [INFO] Epoch 034: Train L1=0.1130, Val L1=0.1106, LR=1.07e-03
+2026-06-05 13:24:30 [INFO] Epoch 035: Train L1=0.1132, Val L1=0.1101, LR=1.07e-03
+2026-06-05 13:26:07 [INFO] Epoch 036: Train L1=0.1096, Val L1=0.1093, LR=1.07e-03
+2026-06-05 13:27:49 [INFO] Epoch 037: Train L1=0.1100, Val L1=0.1090, LR=1.07e-03
+2026-06-05 13:29:56 [INFO] Epoch 038: Train L1=0.1074, Val L1=0.1077, LR=1.07e-03
+2026-06-05 13:31:32 [INFO] Epoch 039: Train L1=0.1041, Val L1=0.1061, LR=1.07e-03
+2026-06-05 13:33:14 [INFO] Epoch 040: Train L1=0.1086, Val L1=0.1041, LR=1.07e-03
+2026-06-05 13:35:01 [INFO] Epoch 041: Train L1=0.1049, Val L1=0.1032, LR=1.07e-03
+2026-06-05 13:37:37 [INFO] Epoch 042: Train L1=0.1048, Val L1=0.1023, LR=1.07e-03
+2026-06-05 13:40:17 [INFO] Epoch 043: Train L1=0.1030, Val L1=0.1017, LR=1.07e-03
+2026-06-05 13:42:52 [INFO] Epoch 044: Train L1=0.1013, Val L1=0.1008, LR=1.07e-03
+2026-06-05 13:45:19 [INFO] Epoch 045: Train L1=0.1035, Val L1=0.1000, LR=1.07e-03
+2026-06-05 13:47:45 [INFO] Epoch 046: Train L1=0.0997, Val L1=0.0996, LR=1.07e-03

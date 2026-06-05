@@ -1,0 +1,46 @@
+{
+  "mode": "train",
+  "model": {
+    "em_dim": 32,
+    "irreps_in": "32x0e",
+    "irreps_out": "1x0e",
+    "layers": 2,
+    "mul": 16,
+    "lmax": 1,
+    "number_of_basis": 8,
+    "radial_layers": 1,
+    "radial_neurons": 32,
+    "max_radius": 5.0,
+    "num_neighbors": 5.0,
+    "dropout": 0.0,
+    "use_rich_features": true,
+    "readout_type": "mean",
+    "output_mlp_layers": 0,
+    "use_multiscale_readout": false
+  },
+  "train": {
+    "num_epochs": 2,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-5,
+    "patience": 5,
+    "scheduler_type": "cosine_warmup",
+    "warmup_epochs": 1,
+    "clip_grad_norm": 1.0,
+    "loss_function": "l1",
+    "min_lr": 1e-07,
+    "use_amp": false,
+    "num_workers": 0
+  },
+  "data": {
+    "dataset_path": "tutorial/data/verde_mini.json",
+    "target_key": "oxidation_potential_S0 (eV)",
+    "structure_field": "xyz_S0",
+    "test_size": 0.1,
+    "val_size": 0.1,
+    "normalize_targets": true,
+    "target_normalization": "auto",
+    "seed": 42
+  },
+  "pretrained_model_file": "data/models/hpo_smoke.pt"
+}

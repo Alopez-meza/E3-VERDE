@@ -1,0 +1,20 @@
+{
+  "mode": "predict",
+  "pretrained_model_file": "data/models/smoke_test.pt",
+  "molecules_path": "data_/predict/xyz",
+  "molecules_format": "xyz",
+  "model": {
+    "em_dim": 32,
+    "layers": 2,
+    "mul": 16,
+    "lmax": 1
+  },
+  "data": {
+    "dataset_path": "verde+PCs.json",
+    "target_key": "oxidation_potential_S0 (eV)",
+    "structure_field": "xyz_S0",
+    "test_size": 0.1,
+    "val_size": 0.1,
+    "seed": 42
+  }
+}

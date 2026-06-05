@@ -1,0 +1,130 @@
+2026-06-05 12:04:18 [INFO] Logging initialized: data\logs\log_20260605_120418.log
+2026-06-05 12:04:18 [INFO] Random seed set to 42
+2026-06-05 12:04:18 [INFO] Device: cpu
+2026-06-05 12:04:18 [INFO] Loading dataset...
+2026-06-05 12:04:19 [INFO] Dataset: 5552 valid entries
+2026-06-05 12:04:20 [INFO] Splits: 4440 train, 556 val, 556 test
+2026-06-05 12:04:20 [INFO] Auto-detection: unimodal distribution -> StandardScaler
+2026-06-05 12:04:20 [INFO] TargetNormalizer (scalar): strategy=standard
+2026-06-05 12:04:20 [INFO] Dataset: 5552 molecules (4440 train, 556 val, 556 test), target=scalar
+2026-06-05 12:04:20 [INFO] Distribution diagnosis: N=4440, mean=1.7294, median=1.7700, std=0.8705, peaks=2, bimodal=True
+2026-06-05 12:04:20 [WARNING] BIMODAL DISTRIBUTION DETECTED - R² may be artificially low. Use Spearman correlation as a more robust metric.
+2026-06-05 12:04:20 [INFO] Starting cross-validation...
+2026-06-05 12:04:20 [INFO] --- Fold 1/2 ---
+2026-06-05 12:04:20 [INFO] Auto-detection: unimodal distribution -> StandardScaler
+2026-06-05 12:04:20 [INFO] TargetNormalizer (scalar): strategy=standard
+2026-06-05 12:04:21 [INFO]   Fold 1: 2498 train, 278 val (early stopping), 2776 test
+2026-06-05 12:04:21 [INFO] Computed avg_num_neighbors=16.7 from 200 molecules (cutoff=5.0)
+2026-06-05 12:04:22 [INFO]   Layer 1: irreps changed 16x0e+16x1o -> 16x0e+16x1o+16x1e (residual will be skipped for this layer)
+2026-06-05 12:04:22 [INFO] Output projection: 16 -> 1 (linear, no MLP)
+2026-06-05 12:04:22 [INFO] Model: 17,521 parameters, output irreps=1x0e
+2026-06-05 12:04:22 [INFO] Optimizer: AdamW, 7 params with WD=1e-05, 13 params without WD (bias/norm)
+2026-06-05 12:04:22 [INFO] Loss function: L1Loss
+2026-06-05 12:04:34 [INFO] Early stopping monitored on: val set (278 samples)
+2026-06-05 12:05:19 [INFO] Epoch 001: Train L1=0.6533, Val L1=0.4712, LR=1.00e-03
+2026-06-05 12:06:05 [INFO] Epoch 002: Train L1=0.4317, Val L1=0.3812, LR=1.00e-07
+2026-06-05 12:06:05 [INFO] Loaded best model from epoch 2
+2026-06-05 12:06:06 [INFO] Plot saved: data\figures\loss_history_(Fold_1)_20260605_120605_726.png
+2026-06-05 12:07:33 [INFO] --- Fold 2/2 ---
+2026-06-05 12:07:33 [INFO] Auto-detection: bimodal distribution -> RobustScaler
+2026-06-05 12:07:33 [INFO] TargetNormalizer (scalar): strategy=robust
+2026-06-05 12:07:34 [INFO]   Fold 2: 2498 train, 278 val (early stopping), 2776 test
+2026-06-05 12:07:34 [INFO] Computed avg_num_neighbors=16.8 from 200 molecules (cutoff=5.0)
+2026-06-05 12:07:35 [INFO]   Layer 1: irreps changed 16x0e+16x1o -> 16x0e+16x1o+16x1e (residual will be skipped for this layer)
+2026-06-05 12:07:35 [INFO] Output projection: 16 -> 1 (linear, no MLP)
+2026-06-05 12:07:35 [INFO] Model: 17,521 parameters, output irreps=1x0e
+2026-06-05 12:07:35 [INFO] Optimizer: AdamW, 7 params with WD=1e-05, 13 params without WD (bias/norm)
+2026-06-05 12:07:35 [INFO] Loss function: L1Loss
+2026-06-05 12:07:47 [INFO] Early stopping monitored on: val set (278 samples)
+2026-06-05 12:08:32 [INFO] Epoch 001: Train L1=0.4270, Val L1=0.3650, LR=1.00e-03
+2026-06-05 12:09:13 [INFO] Epoch 002: Train L1=0.3000, Val L1=0.2820, LR=1.00e-07
+2026-06-05 12:09:13 [INFO] Loaded best model from epoch 2
+2026-06-05 12:09:13 [INFO] Plot saved: data\figures\loss_history_(Fold_2)_20260605_120913_315.png
+2026-06-05 12:10:26 [INFO] Combined CV predictions: 5552 samples
+2026-06-05 12:10:27 [INFO] Plot saved: data\figures\cv_metrics_20260605_121027_026.png
+2026-06-05 12:10:28 [INFO] Plot saved: data\figures\cv_learning_curves_20260605_121027_827.png
+2026-06-05 12:10:28 [INFO] Plot saved: data\figures\parity_plot_20260605_121028_254.png
+2026-06-05 12:10:28 [INFO] === Cross-Validation Summary ===
+2026-06-05 12:10:28 [INFO]   Error_90th: 0.6087 +/- 0.0205
+2026-06-05 12:10:28 [INFO]   Error_95th: 0.8011 +/- 0.0482
+2026-06-05 12:10:28 [INFO]   Kendall_tau: 0.7187 +/- 0.0200
+2026-06-05 12:10:28 [INFO]   MAE: 0.3213 +/- 0.0087
+2026-06-05 12:10:28 [INFO]   MAE_size_11: 0.4898 +/- 0.0246
+2026-06-05 12:10:28 [INFO]   MAE_size_12: 0.2417 +/- 0.0235
+2026-06-05 12:10:28 [INFO]   MAE_size_13: 0.3640 +/- 0.0344
+2026-06-05 12:10:28 [INFO]   MAE_size_14: 0.4193 +/- 0.0425
+2026-06-05 12:10:28 [INFO]   MAE_size_15: 0.2862 +/- 0.1480
+2026-06-05 12:10:28 [INFO]   MAE_size_16: 0.3788 +/- 0.0775
+2026-06-05 12:10:28 [INFO]   MAE_size_17: 0.2828 +/- 0.0130
+2026-06-05 12:10:28 [INFO]   MAE_size_18: 0.7104 +/- 0.1540
+2026-06-05 12:10:28 [INFO]   MAE_size_19: 0.4263 +/- 0.0589
+2026-06-05 12:10:28 [INFO]   MAE_size_20: 0.3686 +/- 0.0503
+2026-06-05 12:10:28 [INFO]   MAE_size_21: 0.3577 +/- 0.0274
+2026-06-05 12:10:28 [INFO]   MAE_size_22: 0.4820 +/- 0.0081
+2026-06-05 12:10:28 [INFO]   MAE_size_23: 0.3421 +/- 0.0468
+2026-06-05 12:10:28 [INFO]   MAE_size_24: 0.3717 +/- 0.0687
+2026-06-05 12:10:28 [INFO]   MAE_size_25: 0.2857 +/- 0.0363
+2026-06-05 12:10:28 [INFO]   MAE_size_26: 0.3692 +/- 0.0427
+2026-06-05 12:10:28 [INFO]   MAE_size_27: 0.2788 +/- 0.0039
+2026-06-05 12:10:28 [INFO]   MAE_size_28: 0.3715 +/- 0.0222
+2026-06-05 12:10:28 [INFO]   MAE_size_29: 0.2397 +/- 0.0008
+2026-06-05 12:10:28 [INFO]   MAE_size_30: 0.3494 +/- 0.0140
+2026-06-05 12:10:28 [INFO]   MAE_size_31: 0.2666 +/- 0.0099
+2026-06-05 12:10:28 [INFO]   MAE_size_32: 0.4054 +/- 0.0043
+2026-06-05 12:10:28 [INFO]   MAE_size_33: 0.3011 +/- 0.0151
+2026-06-05 12:10:28 [INFO]   MAE_size_34: 0.4052 +/- 0.0476
+2026-06-05 12:10:28 [INFO]   MAE_size_35: 0.2418 +/- 0.0062
+2026-06-05 12:10:28 [INFO]   MAE_size_36: 0.3435 +/- 0.0337
+2026-06-05 12:10:28 [INFO]   MAE_size_37: 0.2440 +/- 0.0003
+2026-06-05 12:10:28 [INFO]   MAE_size_38: 0.3352 +/- 0.0166
+2026-06-05 12:10:28 [INFO]   MAE_size_39: 0.2646 +/- 0.0068
+2026-06-05 12:10:28 [INFO]   MAE_size_40: 0.3485 +/- 0.0105
+2026-06-05 12:10:28 [INFO]   MAE_size_41: 0.2369 +/- 0.0040
+2026-06-05 12:10:28 [INFO]   MAE_size_42: 0.2977 +/- 0.0134
+2026-06-05 12:10:28 [INFO]   MAE_size_43: 0.1952 +/- 0.0188
+2026-06-05 12:10:28 [INFO]   MAE_size_44: 0.2583 +/- 0.0286
+2026-06-05 12:10:28 [INFO]   MAE_size_45: 0.2078 +/- 0.0323
+2026-06-05 12:10:28 [INFO]   MAE_size_46: 0.2538 +/- 0.0096
+2026-06-05 12:10:28 [INFO]   MAE_size_47: 0.1960 +/- 0.0238
+2026-06-05 12:10:28 [INFO]   MAE_size_48: 0.2939 +/- 0.0531
+2026-06-05 12:10:28 [INFO]   MAE_size_49: 0.3261 +/- 0.0690
+2026-06-05 12:10:28 [INFO]   MAE_size_5: 1.2087 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_50: 0.3067 +/- 0.1061
+2026-06-05 12:10:28 [INFO]   MAE_size_51: 0.1562 +/- 0.0433
+2026-06-05 12:10:28 [INFO]   MAE_size_52: 0.2237 +/- 0.0827
+2026-06-05 12:10:28 [INFO]   MAE_size_53: 0.1123 +/- 0.0085
+2026-06-05 12:10:28 [INFO]   MAE_size_54: 0.1106 +/- 0.0270
+2026-06-05 12:10:28 [INFO]   MAE_size_55: 0.2957 +/- 0.0617
+2026-06-05 12:10:28 [INFO]   MAE_size_7: 0.6784 +/- 0.1046
+2026-06-05 12:10:28 [INFO]   MAE_size_73: 0.1644 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_75: 0.1120 +/- 0.0642
+2026-06-05 12:10:28 [INFO]   MAE_size_77: 0.3106 +/- 0.0371
+2026-06-05 12:10:28 [INFO]   MAE_size_79: 0.1652 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_8: 0.6516 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_80: 0.3024 +/- 0.0937
+2026-06-05 12:10:28 [INFO]   MAE_size_81: 0.1257 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_82: 0.2817 +/- 0.1200
+2026-06-05 12:10:28 [INFO]   MAE_size_83: 0.2154 +/- 0.0486
+2026-06-05 12:10:28 [INFO]   MAE_size_84: 0.2276 +/- 0.1134
+2026-06-05 12:10:28 [INFO]   MAE_size_85: 0.3145 +/- 0.1174
+2026-06-05 12:10:28 [INFO]   MAE_size_86: 0.2126 +/- 0.1559
+2026-06-05 12:10:28 [INFO]   MAE_size_87: 0.1913 +/- 0.0605
+2026-06-05 12:10:28 [INFO]   MAE_size_88: 0.2450 +/- 0.0316
+2026-06-05 12:10:28 [INFO]   MAE_size_89: 0.2321 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_9: 0.3805 +/- 0.1831
+2026-06-05 12:10:28 [INFO]   MAE_size_91: 0.1888 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_92: 0.1488 +/- 0.0240
+2026-06-05 12:10:28 [INFO]   MAE_size_93: 0.2371 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   MAE_size_94: 0.2574 +/- 0.1331
+2026-06-05 12:10:28 [INFO]   MAE_size_97: 0.2893 +/- 0.0000
+2026-06-05 12:10:28 [INFO]   Max_Error: 3.2592 +/- 0.1041
+2026-06-05 12:10:28 [INFO]   Mean_Signed_Error: 0.0777 +/- 0.0405
+2026-06-05 12:10:28 [INFO]   MedAE: 0.2306 +/- 0.0047
+2026-06-05 12:10:28 [INFO]   Pearson: 0.8293 +/- 0.0164
+2026-06-05 12:10:28 [INFO]   R2: 0.6766 +/- 0.0192
+2026-06-05 12:10:28 [INFO]   R2_median: 0.6772 +/- 0.0191
+2026-06-05 12:10:28 [INFO]   RMSE: 0.4963 +/- 0.0059
+2026-06-05 12:10:28 [INFO]   Spearman: 0.8914 +/- 0.0141
+2026-06-05 12:10:28 [INFO]   Std_Error: 0.3782 +/- 0.0003
+2026-06-05 12:10:28 [INFO] Config saved: data/csv\cross_validate_20260605_120420__run_config.csv
+2026-06-05 12:10:28 [INFO] Completed successfully!

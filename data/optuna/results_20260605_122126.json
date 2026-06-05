@@ -1,0 +1,72 @@
+{
+  "best_trial": {
+    "number": 0,
+    "value": 0.7587718367576599,
+    "params": {
+      "em_dim": 64,
+      "mul": 16,
+      "lmax": 1,
+      "layers": 5,
+      "number_of_basis": 32,
+      "radial_layers": 1,
+      "radial_neurons": 128,
+      "max_radius": 6.0,
+      "dropout": 0.1,
+      "readout_type": "attention",
+      "output_mlp_layers": 1,
+      "output_mlp_hidden": 128,
+      "use_multiscale_readout": true,
+      "learning_rate": 0.0010677482709481358,
+      "weight_decay": 5.987474910461405e-05,
+      "batch_size": 16,
+      "scheduler_type": "plateau",
+      "loss_function": "l1",
+      "use_ema": true,
+      "clip_grad_norm": 10.0
+    },
+    "user_attrs": {
+      "n_params": 151490,
+      "best_epoch": 1,
+      "n_epochs_run": 2
+    }
+  },
+  "summary": {
+    "n_trials": 1,
+    "n_completed": 1,
+    "n_pruned": 0,
+    "n_failed": 0,
+    "best_value": 0.7587718367576599,
+    "pruning_rate": 0.0
+  },
+  "all_completed_trials": [
+    {
+      "number": 0,
+      "value": 0.7587718367576599,
+      "params": {
+        "em_dim": 64,
+        "mul": 16,
+        "lmax": 1,
+        "layers": 5,
+        "number_of_basis": 32,
+        "radial_layers": 1,
+        "radial_neurons": 128,
+        "max_radius": 6.0,
+        "dropout": 0.1,
+        "readout_type": "attention",
+        "output_mlp_layers": 1,
+        "output_mlp_hidden": 128,
+        "use_multiscale_readout": true,
+        "learning_rate": 0.0010677482709481358,
+        "weight_decay": 5.987474910461405e-05,
+        "batch_size": 16,
+        "scheduler_type": "plateau",
+        "loss_function": "l1",
+        "use_ema": true,
+        "clip_grad_norm": 10.0
+      },
+      "n_params": 151490,
+      "best_epoch": 1,
+      "n_epochs_run": 2
+    }
+  ]
+}

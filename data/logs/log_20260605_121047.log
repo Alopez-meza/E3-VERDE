@@ -1,0 +1,18 @@
+2026-06-05 12:10:47 [INFO] Logging initialized: data\logs\log_20260605_121047.log
+2026-06-05 12:10:47 [INFO] Random seed set to 42
+2026-06-05 12:10:47 [INFO] Device: cpu
+2026-06-05 12:10:47 [INFO] Loading dataset...
+2026-06-05 12:10:48 [INFO] Dataset: 5552 valid entries
+2026-06-05 12:10:49 [INFO] Splits: 4440 train, 556 val, 556 test
+2026-06-05 12:10:49 [INFO] Auto-detection: unimodal distribution -> StandardScaler
+2026-06-05 12:10:49 [INFO] TargetNormalizer (scalar): strategy=standard
+2026-06-05 12:10:50 [INFO] Dataset: 5552 molecules (4440 train, 556 val, 556 test), target=scalar
+2026-06-05 12:10:50 [INFO] Distribution diagnosis: N=4440, mean=1.7294, median=1.7700, std=0.8705, peaks=2, bimodal=True
+2026-06-05 12:10:50 [WARNING] BIMODAL DISTRIBUTION DETECTED - R² may be artificially low. Use Spearman correlation as a more robust metric.
+2026-06-05 12:10:50 [INFO]   Layer 1: irreps changed 16x0e+16x1o -> 16x0e+16x1o+16x1e (residual will be skipped for this layer)
+2026-06-05 12:10:50 [INFO] Attention readout enabled (learned scalar weights per atom)
+2026-06-05 12:10:50 [INFO] Output MLP: 16 -> ... -> 1 (1 layers)
+2026-06-05 12:10:50 [INFO] Restored scalar normalizer: type=standard
+2026-06-05 12:10:52 [INFO] Predictions saved: data\predictions\predictions_20260605_121052.csv
+2026-06-05 12:10:52 [INFO] Predictions: 40 molecules
+2026-06-05 12:10:52 [INFO] Completed successfully!
