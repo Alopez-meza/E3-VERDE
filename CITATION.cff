@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: "E(3)-VERDE: A 3D-Equivariant Neural Network for the Complete Ground- and Excited-State Redox Landscape of Organic Photocatalysts"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Lopez
+    given-names: Andres C.
+    affiliation: Northeastern University
+  - family-names: Gomes
+    given-names: Leticia A.
+    affiliation: Northeastern University
+  - family-names: Lopez
+    given-names: Steven A.
+    affiliation: Northeastern University
+license: MIT
+keywords:
+  - equivariant neural networks
+  - graph neural networks
+  - photocatalysts
+  - redox potentials
+  - e3nn
+preferred-citation:
+  type: article
+  title: "E(3)-VERDE: A 3D-Equivariant Neural Network for the Complete Ground- and Excited-State Redox Landscape of Organic Photocatalysts"
+  authors:
+    - family-names: Lopez
+      given-names: Andres C.
+    - family-names: Gomes
+      given-names: Leticia A.
+    - family-names: Lopez
+      given-names: Steven A.
+  year: 2026
+  notes: "Publication details to be updated upon acceptance."
