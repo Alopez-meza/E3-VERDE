@@ -69,17 +69,6 @@ Everything below ships with the clone — **documentation, code, figures, and da
 
 **Figures from your own runs** (loss curves, parity plots, etc.) are **not** stored in the repo. They are generated locally under `data/figures/` when you train — that folder is gitignored and recreated on each run.
 
-## What is not in this repository (paper / SI)
-
-| Not included | Where to get it | Needed for |
-|--------------|-----------------|------------|
-| **Full training database** (`verde+PCs.json`) | Paper and Supporting Information | Reproducing full paper training; optional for predict |
-| **Paper numerical results** (tables, SI metrics) | Manuscript and SI | Comparison with published numbers |
-| **Cluster scratch** | — | Removed — was local only, never part of the published repo |
-
-For **prediction on new molecules**, you only need what is in the repo (tutorial or `data_/predict/`).  
-For **full retraining** on VERDE+PCs, download the database and place `verde+PCs.json` in the project root.
-
 ## Data availability
 
 The VERDE+PCs training database and numerical results are described in the paper and Supporting Information. They are not bundled in this repository.
